@@ -15,7 +15,7 @@ public class Program {
 			SellerDao sellerDao = Daofactory.createSellerDao();// o metodo tem a instancia de SELLERDAO
 			
 			System.out.println(" ==== TEST 1: Seller findById ====");
-			Seller seller = sellerDao.findById(3);
+			Seller seller = sellerDao.findById(7);
 			System.out.println(seller);
 
 			System.out.println("\n ==== TEST 2: Seller findByDepartment ====");
@@ -30,11 +30,21 @@ public class Program {
 			for (Seller obj : sellersAll) {
 				System.out.println(obj);
 			}
-
+			
+			/*
 			System.out.println("\n ==== TEST 4: Seller insert ====");
 			Seller sellerInsert = new Seller(null, "MalcomX", "malcomx@gmail.com", new Date(), 4500.00, department );
-			sellerDao.isert(sellerInsert);
+			sellerDao.insert(sellerInsert);
 			System.out.println("Inserted! New id = " + sellerInsert.getId());
+			*/
+	
+
+			System.out.println("\n ==== TEST 5: Seller update ====");
+			sellerDao.findById(7);
+			seller.setBaseSalary(8000.00);
+			//seller.setEmail("greatemalcomx@gmail.com");
+			sellerDao.update(seller);
+			System.out.println("Updated!");
 	}
 
 }

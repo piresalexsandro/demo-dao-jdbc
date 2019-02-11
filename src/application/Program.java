@@ -2,6 +2,7 @@ package application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.Daofactory;
 import model.dao.SellerDao;
@@ -10,8 +11,9 @@ import model.entities.Seller;
 
 public class Program {
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) {		
+			
+			Scanner sc = new Scanner(System.in);
 			SellerDao sellerDao = Daofactory.createSellerDao();// o metodo tem a instancia de SELLERDAO
 			
 			System.out.println(" ==== TEST 1: Seller findById ====");
@@ -31,20 +33,28 @@ public class Program {
 				System.out.println(obj);
 			}
 			
-			/*
+			
 			System.out.println("\n ==== TEST 4: Seller insert ====");
 			Seller sellerInsert = new Seller(null, "MalcomX", "malcomx@gmail.com", new Date(), 4500.00, department );
 			sellerDao.insert(sellerInsert);
 			System.out.println("Inserted! New id = " + sellerInsert.getId());
-			*/
+			
 	
-
+			
 			System.out.println("\n ==== TEST 5: Seller update ====");
 			sellerDao.findById(7);
 			seller.setBaseSalary(8000.00);
-			//seller.setEmail("greatemalcomx@gmail.com");
+			seller.setEmail("greatemalcomx@gmail.com");
 			sellerDao.update(seller);
 			System.out.println("Updated!");
+			
+
+			System.out.println("\n ==== TEST 6: Seller delete ====");
+			System.out.println("Entre com o id a ser excluido");
+			int idDelete = sc.nextInt();
+			sellerDao.deleteById(idDelete);
+			System.out.println("deleted!");
+			sc.close();
 	}
 
 }

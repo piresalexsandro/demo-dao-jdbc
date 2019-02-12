@@ -32,7 +32,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 	}
 			
 	@Override
-	public void isert(Department obj) {
+	public void insert(Department obj) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
@@ -80,7 +80,6 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 			
 			st.setString(1, obj.getName());
 			st.setInt(2, obj.getId());
-			st.setInt(3, obj.getId());
 			
 			st.executeUpdate();
 		}

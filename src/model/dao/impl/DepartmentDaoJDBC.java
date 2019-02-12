@@ -70,7 +70,6 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 	@Override
 	public void update(Department obj) {
 		PreparedStatement st = null;
-		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
 					"UPDATE DEPARTMENT "
@@ -94,7 +93,6 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 	@Override
 	public void deleteById(Integer id) {
 		PreparedStatement st = null;
-		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement("DELETE FROM DEPARTMENT WHERE Id = ?");
 			
